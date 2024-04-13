@@ -5,6 +5,12 @@
 			"guid": "00000000000000000000000000000000",
 			"description": "Default Uncontrolled Changelist",
 			"files": [
+				"D:/GitHub/bamboozle/MyProject/Content/Custom/GM_Bamboozle.uasset",
+				"D:/GitHub/bamboozle/MyProject/Content/Custom/BP_PlayerTest.uasset",
+				"D:/GitHub/bamboozle/MyProject/Content/__ExternalActors__/FirstPerson/Maps/FirstPersonMap/3/D3/NF50MGL1AFHQ516XAO6FHI.uasset",
+				"D:/GitHub/bamboozle/MyProject/Content/FirstPerson/Maps/FirstPersonMap.umap",
+				"D:/GitHub/bamboozle/MyProject/Content/FirstPerson/Blueprints/BP_FirstPersonGameMode.uasset",
+				"D:/GitHub/bamboozle/MyProject/Content/Custom/BP_PlayerClone.uasset",
 				"C:/Users/drkiw/Documents/Unreal Projects/MyProject/Content/StarterContent/Particles/P_Ambient_Dust.uasset"
 			]
 		}
