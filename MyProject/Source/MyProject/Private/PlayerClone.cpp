@@ -35,9 +35,86 @@ void APlayerClone::OnTriggerEnter(UPrimitiveComponent* curHitbox, AActor* other,
 
 // Called every frame
 void APlayerClone::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
+{	Super::Tick(DeltaTime);
 
+	
+	//FString print = FString::Printf(TEXT("delta time: %f"), DeltaTime);
+	//if (GEngine)
+	//	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, print);
+		
+	deltaAccumulator += DeltaTime;
+
+
+	while (deltaAccumulator >= 0.02f) {
+		deltaAccumulator -= 0.02f;
+		FixedUpdate();
+	}
+}
+
+void APlayerClone::FixedUpdate()
+{
+	HandleMovement();
+	HandleRotation();
+}
+
+void APlayerClone::HandleMovement()
+{
+	FVector fwdVec = GetActorForwardVector() * moveForce;
+	FVector rightVec = GetActorRightVector() * moveForce;
+
+	if (keyWDown) {
+		if (!keySDown) {
+			if (keyADown) {
+				if (!keyDDown) {
+					AddForce((fwdVec - rightVec) * .707, true);
+				}
+			}
+			else if (keyDDown) {
+				AddForce((fwdVec + rightVec) * .707, true);
+			}
+			else {
+				AddForce(fwdVec, true);
+			}
+		}
+	}
+	else if (keySDown) {
+		if (keyADown) {
+			if (!keyDDown) {
+				AddForce((-fwdVec - rightVec) * .707, true);
+			}
+		}
+		else if (keyDDown) {
+			AddForce((-fwdVec + rightVec) * .707, true);
+		}
+		else {
+			AddForce(-fwdVec, true);
+		}
+	}
+	else {
+		if (keyADown) {
+			if (!keyDDown) {
+				AddForce(-rightVec, true);
+			}
+		}
+		else if (keyDDown) {
+			AddForce(rightVec, true);
+		}
+	}
+
+	
+}
+
+void APlayerClone::HandleRotation()
+{
+	FRotator rotation = FRotator(0, mouseX, 0) * mouseSensitivity;
+	//PhysicsBody->AddRelativeRotation(rotation);
+	AddActorLocalRotation(rotation);
+
+	rotation = FRotator(mouseY, 0, 0) * mouseSensitivity;
+	//cameraComponent->
+	//cameraActor->AddActorLocalRotation(rotation);
+
+	//PhysicsBody->AddLocalRotation(rotation);
 }
 
 // Called to bind functionality to input
@@ -64,3 +141,12 @@ void APlayerClone::SetPosition(FVector position, bool updatePhysics = false)
 
 }
 
+void APlayerClone::KeySpaceDown()
+{
+	AttemptJump();
+}
+
+void APlayerClone::AttemptJump()
+{
+	AddForce(FVector(0,1,0) * jumpPower, true);
+}

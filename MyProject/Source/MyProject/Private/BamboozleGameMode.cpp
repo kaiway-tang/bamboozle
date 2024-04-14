@@ -5,14 +5,16 @@
 
 ABamboozleGameMode::ABamboozleGameMode()
 {
-	curPawn = pawnList.begin();
+	// curPawn = pawnList.begin();
 }
 
 void ABamboozleGameMode::RegisterPawn(APawn* pawn)
 {
+	/*
 	pawnList.insert(curPawn, pawn);
 	curPawn--;
 	pawnRef[pawn] = curPawn;
+	*/
 }
 
 APawn* ABamboozleGameMode::CyclePawn(bool left)

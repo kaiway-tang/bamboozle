@@ -21,6 +21,13 @@ void EmptyLinkFunctionForGeneratedCodePlayerClone() {}
 	MYPROJECT_API UClass* Z_Construct_UClass_APlayerClone_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_MyProject();
 // End Cross Module References
+	DEFINE_FUNCTION(APlayerClone::execKeySpaceDown)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->KeySpaceDown();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(APlayerClone::execSetPosition)
 	{
 		P_GET_STRUCT(FVector,Z_Param_position);
@@ -57,6 +64,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerClone() {}
 		UClass* Class = APlayerClone::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "AddForce", &APlayerClone::execAddForce },
+			{ "KeySpaceDown", &APlayerClone::execKeySpaceDown },
 			{ "OnTriggerEnter", &APlayerClone::execOnTriggerEnter },
 			{ "SetPosition", &APlayerClone::execSetPosition },
 		};
@@ -102,6 +110,28 @@ void EmptyLinkFunctionForGeneratedCodePlayerClone() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APlayerClone_AddForce_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_APlayerClone_KeySpaceDown_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_APlayerClone_KeySpaceDown_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/PlayerClone.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_APlayerClone_KeySpaceDown_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_APlayerClone, nullptr, "KeySpaceDown", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_APlayerClone_KeySpaceDown_Statics::Function_MetaDataParams), Z_Construct_UFunction_APlayerClone_KeySpaceDown_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_APlayerClone_KeySpaceDown()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_APlayerClone_KeySpaceDown_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -255,6 +285,59 @@ void EmptyLinkFunctionForGeneratedCodePlayerClone() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_PhysicsBody_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_PhysicsBody;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_keyWDown_MetaData[];
+#endif
+		static void NewProp_keyWDown_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_keyWDown;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_keySDown_MetaData[];
+#endif
+		static void NewProp_keySDown_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_keySDown;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_keyADown_MetaData[];
+#endif
+		static void NewProp_keyADown_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_keyADown;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_keyDDown_MetaData[];
+#endif
+		static void NewProp_keyDDown_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_keyDDown;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_keySpaceDown_MetaData[];
+#endif
+		static void NewProp_keySpaceDown_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_keySpaceDown;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mouseX_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_mouseX;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mouseY_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_mouseY;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mouseSensitivity_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_mouseSensitivity;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_fwdForce_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_fwdForce;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_moveForce_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_moveForce;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_jumpPower_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_jumpPower;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_cameraActor_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_cameraActor;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -266,6 +349,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerClone() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_APlayerClone_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_APlayerClone_AddForce, "AddForce" }, // 1608936733
+		{ &Z_Construct_UFunction_APlayerClone_KeySpaceDown, "KeySpaceDown" }, // 1455660203
 		{ &Z_Construct_UFunction_APlayerClone_OnTriggerEnter, "OnTriggerEnter" }, // 2410427831
 		{ &Z_Construct_UFunction_APlayerClone_SetPosition, "SetPosition" }, // 285945634
 	};
@@ -301,10 +385,126 @@ void EmptyLinkFunctionForGeneratedCodePlayerClone() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_PhysicsBody = { "PhysicsBody", nullptr, (EPropertyFlags)0x002008000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerClone, PhysicsBody), Z_Construct_UClass_UPrimitiveComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_PhysicsBody_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_PhysicsBody_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_keyWDown_MetaData[] = {
+		{ "Category", "PlayerClone" },
+		{ "ModuleRelativePath", "Public/PlayerClone.h" },
+	};
+#endif
+	void Z_Construct_UClass_APlayerClone_Statics::NewProp_keyWDown_SetBit(void* Obj)
+	{
+		((APlayerClone*)Obj)->keyWDown = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_keyWDown = { "keyWDown", nullptr, (EPropertyFlags)0x0020080000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(APlayerClone), &Z_Construct_UClass_APlayerClone_Statics::NewProp_keyWDown_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_keyWDown_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_keyWDown_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_keySDown_MetaData[] = {
+		{ "Category", "PlayerClone" },
+		{ "ModuleRelativePath", "Public/PlayerClone.h" },
+	};
+#endif
+	void Z_Construct_UClass_APlayerClone_Statics::NewProp_keySDown_SetBit(void* Obj)
+	{
+		((APlayerClone*)Obj)->keySDown = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_keySDown = { "keySDown", nullptr, (EPropertyFlags)0x0020080000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(APlayerClone), &Z_Construct_UClass_APlayerClone_Statics::NewProp_keySDown_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_keySDown_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_keySDown_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_keyADown_MetaData[] = {
+		{ "Category", "PlayerClone" },
+		{ "ModuleRelativePath", "Public/PlayerClone.h" },
+	};
+#endif
+	void Z_Construct_UClass_APlayerClone_Statics::NewProp_keyADown_SetBit(void* Obj)
+	{
+		((APlayerClone*)Obj)->keyADown = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_keyADown = { "keyADown", nullptr, (EPropertyFlags)0x0020080000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(APlayerClone), &Z_Construct_UClass_APlayerClone_Statics::NewProp_keyADown_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_keyADown_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_keyADown_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_keyDDown_MetaData[] = {
+		{ "Category", "PlayerClone" },
+		{ "ModuleRelativePath", "Public/PlayerClone.h" },
+	};
+#endif
+	void Z_Construct_UClass_APlayerClone_Statics::NewProp_keyDDown_SetBit(void* Obj)
+	{
+		((APlayerClone*)Obj)->keyDDown = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_keyDDown = { "keyDDown", nullptr, (EPropertyFlags)0x0020080000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(APlayerClone), &Z_Construct_UClass_APlayerClone_Statics::NewProp_keyDDown_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_keyDDown_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_keyDDown_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_keySpaceDown_MetaData[] = {
+		{ "Category", "PlayerClone" },
+		{ "ModuleRelativePath", "Public/PlayerClone.h" },
+	};
+#endif
+	void Z_Construct_UClass_APlayerClone_Statics::NewProp_keySpaceDown_SetBit(void* Obj)
+	{
+		((APlayerClone*)Obj)->keySpaceDown = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_keySpaceDown = { "keySpaceDown", nullptr, (EPropertyFlags)0x0020080000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(APlayerClone), &Z_Construct_UClass_APlayerClone_Statics::NewProp_keySpaceDown_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_keySpaceDown_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_keySpaceDown_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseX_MetaData[] = {
+		{ "Category", "PlayerClone" },
+		{ "ModuleRelativePath", "Public/PlayerClone.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseX = { "mouseX", nullptr, (EPropertyFlags)0x0020080000000004, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerClone, mouseX), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseX_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseX_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseY_MetaData[] = {
+		{ "Category", "PlayerClone" },
+		{ "ModuleRelativePath", "Public/PlayerClone.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseY = { "mouseY", nullptr, (EPropertyFlags)0x0020080000000004, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerClone, mouseY), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseY_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseY_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseSensitivity_MetaData[] = {
+		{ "Category", "PlayerClone" },
+		{ "ModuleRelativePath", "Public/PlayerClone.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseSensitivity = { "mouseSensitivity", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerClone, mouseSensitivity), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseSensitivity_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseSensitivity_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_fwdForce_MetaData[] = {
+		{ "Category", "PlayerClone" },
+		{ "ModuleRelativePath", "Public/PlayerClone.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_fwdForce = { "fwdForce", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerClone, fwdForce), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_fwdForce_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_fwdForce_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_moveForce_MetaData[] = {
+		{ "Category", "PlayerClone" },
+		{ "ModuleRelativePath", "Public/PlayerClone.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_moveForce = { "moveForce", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerClone, moveForce), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_moveForce_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_moveForce_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_jumpPower_MetaData[] = {
+		{ "Category", "PlayerClone" },
+		{ "ModuleRelativePath", "Public/PlayerClone.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_jumpPower = { "jumpPower", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerClone, jumpPower), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_jumpPower_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_jumpPower_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraActor_MetaData[] = {
+		{ "Category", "PlayerClone" },
+		{ "ModuleRelativePath", "Public/PlayerClone.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraActor = { "cameraActor", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerClone, cameraActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraActor_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraActor_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APlayerClone_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_RootMesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_Hitbox,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_PhysicsBody,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_keyWDown,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_keySDown,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_keyADown,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_keyDDown,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_keySpaceDown,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseX,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseY,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_mouseSensitivity,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_fwdForce,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_moveForce,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_jumpPower,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraActor,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APlayerClone_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APlayerClone>::IsAbstract,
@@ -344,9 +544,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerClone() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_PlayerClone_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerClone, APlayerClone::StaticClass, TEXT("APlayerClone"), &Z_Registration_Info_UClass_APlayerClone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerClone), 197890886U) },
+		{ Z_Construct_UClass_APlayerClone, APlayerClone::StaticClass, TEXT("APlayerClone"), &Z_Registration_Info_UClass_APlayerClone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerClone), 131025614U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_PlayerClone_h_2059812763(TEXT("/Script/MyProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_PlayerClone_h_3702430910(TEXT("/Script/MyProject"),
 		Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_PlayerClone_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_PlayerClone_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

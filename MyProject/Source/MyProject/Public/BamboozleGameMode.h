@@ -20,10 +20,11 @@ class MYPROJECT_API ABamboozleGameMode : public AGameModeBase
 	GENERATED_BODY()
 	
 private:
+	/*
 	std::list<APawn*> pawnList;
 	std::list<APawn*>::iterator curPawn;
 	std::unordered_map<APawn*, std::list<APawn*>::iterator> pawnRef;
-
+	*/
 public:
 	ABamboozleGameMode();
 

@@ -22,6 +22,7 @@ struct FHitResult;
 #define FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_PlayerClone_h_13_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_PlayerClone_h_13_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execKeySpaceDown); \
 	DECLARE_FUNCTION(execSetPosition); \
 	DECLARE_FUNCTION(execAddForce); \
 	DECLARE_FUNCTION(execOnTriggerEnter);
