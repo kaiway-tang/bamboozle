@@ -6,7 +6,7 @@
 // Sets default values
 APlayerClone::APlayerClone()
 {
- 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	RootMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Root Mesh"));
@@ -15,14 +15,14 @@ APlayerClone::APlayerClone()
 	RootBoneName = RootMesh->GetFName();
 
 	Hitbox = CreateDefaultSubobject<UBoxComponent>(TEXT("Hitbox"));
-	Hitbox->SetupAttachment(RootMesh); 
+	Hitbox->SetupAttachment(RootMesh);
 }
 
 // Called when the game starts or when spawned
 void APlayerClone::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
 	PhysicsBody = Cast<UPrimitiveComponent>(RootMesh);
 	Hitbox->OnComponentBeginOverlap.AddDynamic(this, &APlayerClone::OnTriggerEnter);
 }
@@ -35,13 +35,14 @@ void APlayerClone::OnTriggerEnter(UPrimitiveComponent* curHitbox, AActor* other,
 
 // Called every frame
 void APlayerClone::Tick(float DeltaTime)
-{	Super::Tick(DeltaTime);
+{
+	Super::Tick(DeltaTime);
 
-	
+
 	//FString print = FString::Printf(TEXT("delta time: %f"), DeltaTime);
 	//if (GEngine)
 	//	GEngine->AddOnScreenDebugMessage(-1, 15.0f, FColor::Yellow, print);
-		
+
 	deltaAccumulator += DeltaTime;
 
 
@@ -101,7 +102,7 @@ void APlayerClone::HandleMovement()
 		}
 	}
 
-	
+
 }
 
 void APlayerClone::HandleRotation()
@@ -148,5 +149,5 @@ void APlayerClone::KeySpaceDown()
 
 void APlayerClone::AttemptJump()
 {
-	AddForce(FVector(0,1,0) * jumpPower, true);
+	AddForce(FVector(0, 1, 0) * jumpPower, true);
 }

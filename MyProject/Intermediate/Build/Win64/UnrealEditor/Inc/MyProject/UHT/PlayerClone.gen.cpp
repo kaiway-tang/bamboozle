@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerClone() {}
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_APawn();
+	ENGINE_API UClass* Z_Construct_UClass_UActorComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UBoxComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
@@ -335,9 +336,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerClone() {}
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_jumpPower;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_cameraActor_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_cameraComponent_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_cameraActor;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_cameraComponent;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -483,12 +484,13 @@ void EmptyLinkFunctionForGeneratedCodePlayerClone() {}
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_jumpPower = { "jumpPower", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerClone, jumpPower), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_jumpPower_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_jumpPower_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraActor_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraComponent_MetaData[] = {
 		{ "Category", "PlayerClone" },
+		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/PlayerClone.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraActor = { "cameraActor", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerClone, cameraActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraActor_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraActor_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraComponent = { "cameraComponent", nullptr, (EPropertyFlags)0x0020080000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(APlayerClone, cameraComponent), Z_Construct_UClass_UActorComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraComponent_MetaData), Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraComponent_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_APlayerClone_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_RootMesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_Hitbox,
@@ -504,7 +506,7 @@ void EmptyLinkFunctionForGeneratedCodePlayerClone() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_fwdForce,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_moveForce,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_jumpPower,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraActor,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_APlayerClone_Statics::NewProp_cameraComponent,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_APlayerClone_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<APlayerClone>::IsAbstract,
@@ -544,9 +546,9 @@ void EmptyLinkFunctionForGeneratedCodePlayerClone() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_PlayerClone_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APlayerClone, APlayerClone::StaticClass, TEXT("APlayerClone"), &Z_Registration_Info_UClass_APlayerClone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerClone), 131025614U) },
+		{ Z_Construct_UClass_APlayerClone, APlayerClone::StaticClass, TEXT("APlayerClone"), &Z_Registration_Info_UClass_APlayerClone, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APlayerClone), 1864886820U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_PlayerClone_h_3702430910(TEXT("/Script/MyProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_PlayerClone_h_3671745594(TEXT("/Script/MyProject"),
 		Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_PlayerClone_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_PlayerClone_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

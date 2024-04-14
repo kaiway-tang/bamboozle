@@ -25,10 +25,10 @@ void EmptyLinkFunctionForGeneratedCodeBamboozleGameMode() {}
 	}
 	DEFINE_FUNCTION(ABamboozleGameMode::execCyclePawn)
 	{
-		P_GET_UBOOL(Z_Param_left);
+		P_GET_UBOOL(Z_Param_reverse);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(APawn**)Z_Param__Result=P_THIS->CyclePawn(Z_Param_left);
+		*(APawn**)Z_Param__Result=P_THIS->CyclePawn(Z_Param_reverse);
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(ABamboozleGameMode::execRegisterPawn)
@@ -53,11 +53,11 @@ void EmptyLinkFunctionForGeneratedCodeBamboozleGameMode() {}
 	{
 		struct BamboozleGameMode_eventCyclePawn_Parms
 		{
-			bool left;
+			bool reverse;
 			APawn* ReturnValue;
 		};
-		static void NewProp_left_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_left;
+		static void NewProp_reverse_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_reverse;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
@@ -65,14 +65,14 @@ void EmptyLinkFunctionForGeneratedCodeBamboozleGameMode() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	void Z_Construct_UFunction_ABamboozleGameMode_CyclePawn_Statics::NewProp_left_SetBit(void* Obj)
+	void Z_Construct_UFunction_ABamboozleGameMode_CyclePawn_Statics::NewProp_reverse_SetBit(void* Obj)
 	{
-		((BamboozleGameMode_eventCyclePawn_Parms*)Obj)->left = 1;
+		((BamboozleGameMode_eventCyclePawn_Parms*)Obj)->reverse = 1;
 	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ABamboozleGameMode_CyclePawn_Statics::NewProp_left = { "left", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(BamboozleGameMode_eventCyclePawn_Parms), &Z_Construct_UFunction_ABamboozleGameMode_CyclePawn_Statics::NewProp_left_SetBit, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ABamboozleGameMode_CyclePawn_Statics::NewProp_reverse = { "reverse", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(BamboozleGameMode_eventCyclePawn_Parms), &Z_Construct_UFunction_ABamboozleGameMode_CyclePawn_Statics::NewProp_reverse_SetBit, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ABamboozleGameMode_CyclePawn_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BamboozleGameMode_eventCyclePawn_Parms, ReturnValue), Z_Construct_UClass_APawn_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABamboozleGameMode_CyclePawn_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABamboozleGameMode_CyclePawn_Statics::NewProp_left,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABamboozleGameMode_CyclePawn_Statics::NewProp_reverse,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABamboozleGameMode_CyclePawn_Statics::NewProp_ReturnValue,
 	};
 #if WITH_METADATA
@@ -181,7 +181,7 @@ void EmptyLinkFunctionForGeneratedCodeBamboozleGameMode() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABamboozleGameMode_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ABamboozleGameMode_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ABamboozleGameMode_CyclePawn, "CyclePawn" }, // 3937375163
+		{ &Z_Construct_UFunction_ABamboozleGameMode_CyclePawn, "CyclePawn" }, // 2742511753
 		{ &Z_Construct_UFunction_ABamboozleGameMode_DeregisterPawn, "DeregisterPawn" }, // 2811743003
 		{ &Z_Construct_UFunction_ABamboozleGameMode_RegisterPawn, "RegisterPawn" }, // 3946879819
 	};
@@ -189,7 +189,7 @@ void EmptyLinkFunctionForGeneratedCodeBamboozleGameMode() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABamboozleGameMode_Statics::Class_MetaDataParams[] = {
 #if !UE_BUILD_SHIPPING
-		{ "Comment", "/**\n * \n */" },
+		{ "Comment", "/**\n *\n */" },
 #endif
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
 		{ "IncludePath", "BamboozleGameMode.h" },
@@ -234,9 +234,9 @@ void EmptyLinkFunctionForGeneratedCodeBamboozleGameMode() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_BamboozleGameMode_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ABamboozleGameMode, ABamboozleGameMode::StaticClass, TEXT("ABamboozleGameMode"), &Z_Registration_Info_UClass_ABamboozleGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABamboozleGameMode), 2441960843U) },
+		{ Z_Construct_UClass_ABamboozleGameMode, ABamboozleGameMode::StaticClass, TEXT("ABamboozleGameMode"), &Z_Registration_Info_UClass_ABamboozleGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABamboozleGameMode), 2152759313U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_BamboozleGameMode_h_82367655(TEXT("/Script/MyProject"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_BamboozleGameMode_h_2428838925(TEXT("/Script/MyProject"),
 		Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_BamboozleGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_GitHub_bamboozle_MyProject_Source_MyProject_Public_BamboozleGameMode_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

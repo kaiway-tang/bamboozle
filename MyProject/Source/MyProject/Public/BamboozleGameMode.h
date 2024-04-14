@@ -2,14 +2,14 @@
 
 #pragma once
 
-#include <list>
-#include <unordered_map>
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "Containers/Map.h"
+#include "Containers/List.h"
 #include "BamboozleGameMode.generated.h"
 
 /**
- * 
+ *
  */
 
 
@@ -17,23 +17,24 @@
 UCLASS()
 class MYPROJECT_API ABamboozleGameMode : public AGameModeBase
 {
-	GENERATED_BODY()
-	
-private:
-	/*
-	std::list<APawn*> pawnList;
-	std::list<APawn*>::iterator curPawn;
-	std::unordered_map<APawn*, std::list<APawn*>::iterator> pawnRef;
-	*/
+    GENERATED_BODY()
+
+protected:
+
+    float dummy;
+    TDoubleLinkedList<APawn*> pawnList;
+    TDoubleLinkedList<APawn*>::TDoubleLinkedListNode* curPawn;
+    TMap<APawn*, TDoubleLinkedList<APawn*>::TDoubleLinkedListNode*> pawnRef;
+
 public:
-	ABamboozleGameMode();
+    ABamboozleGameMode();
 
-	UFUNCTION(BlueprintCallable)
-	void RegisterPawn(APawn* pawn);
+    UFUNCTION(BlueprintCallable)
+    void RegisterPawn(APawn* pawn);
 
-	UFUNCTION(BlueprintCallable)
-	APawn* CyclePawn(bool left);
+    UFUNCTION(BlueprintCallable)
+    APawn* CyclePawn(bool reverse);
 
-	UFUNCTION(BlueprintCallable)
-	void DeregisterPawn(APawn* pawn);
+    UFUNCTION(BlueprintCallable)
+    void DeregisterPawn(APawn* pawn);
 };
