@@ -3,11 +3,15 @@
 
 #include "BamboozleGameMode.h"
 
+
 ABamboozleGameMode::ABamboozleGameMode()
 {
     // pawnList = TDoubleLinkedList<APawn*>();
     curPawn = nullptr;
     // pawnRef = TMap<APawn*, TDoubleLinkedListNode*>();
+    world = GetWorld();
+
+    PrimaryActorTick.bCanEverTick = true;
 }
 
 void ABamboozleGameMode::RegisterPawn(APawn* pawn)
@@ -38,9 +42,46 @@ APawn* ABamboozleGameMode::CyclePawn(bool reverse = false)
     return newcur == nullptr ? nullptr : newcur->GetValue();
 }
 
+APawn* ABamboozleGameMode::GetCurPawn()
+{
+    return curPawn == nullptr ? nullptr : curPawn->GetValue();
+}
+
 void ABamboozleGameMode::DeregisterPawn(APawn* pawn)
 {
     if (pawnRef[pawn] == curPawn) curPawn = pawnList.GetHead();
     pawnList.RemoveNode(pawnRef[pawn]);
     pawnRef.FindAndRemoveChecked(pawn);
 }
+
+void ABamboozleGameMode::SetPlayerRef(APlayerClone* plr)
+{
+    PlayerRef = plr;
+}
+
+APlayerClone* ABamboozleGameMode::GetPlayerRef()
+{
+    return PlayerRef;
+}
+
+void ABamboozleGameMode::AddScore(int amt)
+{
+    Score += amt;
+}
+
+void ABamboozleGameMode::RestartMatch()
+{
+    QueueGameUI = true;
+
+}
+
+void ABamboozleGameMode::ReloadLevel()
+{
+    UGameplayStatics::OpenLevel(this, "GameScene");
+}
+
+void ABamboozleGameMode::Tick(float DeltaTime) {
+
+    
+}
+
