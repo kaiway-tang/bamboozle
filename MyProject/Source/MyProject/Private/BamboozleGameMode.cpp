@@ -10,6 +10,7 @@ ABamboozleGameMode::ABamboozleGameMode()
     curPawn = nullptr;
     // pawnRef = TMap<APawn*, TDoubleLinkedListNode*>();
     world = GetWorld();
+    QueueGameUI = false;
 
     PrimaryActorTick.bCanEverTick = true;
 }
@@ -72,16 +73,17 @@ void ABamboozleGameMode::AddScore(int amt)
 void ABamboozleGameMode::RestartMatch()
 {
     QueueGameUI = true;
+    if (GEngine) {
+        //FString	print = FString::Printf(TEXT("now summon!"));
+        GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, TEXT("Attempt restart UI"));
+        //GEngine->AddOnScreenDebugMessage(-1, 5.0f, FColor::Yellow, print);
+    }
 
+    // ReloadLevel();
 }
 
 void ABamboozleGameMode::ReloadLevel()
 {
     UGameplayStatics::OpenLevel(this, "GameScene");
-}
-
-void ABamboozleGameMode::Tick(float DeltaTime) {
-
-    
 }
 

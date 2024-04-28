@@ -41,8 +41,6 @@ public:
 
     ABamboozleGameMode();
 
-    virtual void Tick(float DeltaTime) override;
-
     UFUNCTION(BlueprintCallable)
     void RegisterPawn(APawn* pawn);
 

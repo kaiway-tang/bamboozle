@@ -38,6 +38,7 @@ void APlayerClone::BeginPlay()
 
 	if (gm)
 	{
+		print(TEXT("Found Game mode"));
 		gm->SetPlayerRef(this);
 	}		
 
@@ -610,12 +611,14 @@ void APlayerClone::print(FString x)
 
 void APlayerClone::Hit()
 {
+	print(TEXT("Player Hit"));
 	if (DamageRecoveryTimer > 0) {
 
 		isAlive = false;
 		print("kicked the bucket");
 
 		if (gm) {
+			print(TEXT("Restarting"));
 			gm->RestartMatch();
 		}
 

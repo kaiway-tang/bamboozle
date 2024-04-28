@@ -331,7 +331,7 @@ float AEnemy::DistanceToTarget()
 void AEnemy::UpdateTarget() {
 	targetID = 0;
 
-	if (!ValidateTarget(0)) { error("No player ref"); return; }
+	if (!ValidateTarget(0)) { /*error("No player ref");*/ return; }
 
 	float distance = (playerReference->GetActorLocation() - GetActorLocation()).SquaredLength();
 	float temp = 0;
